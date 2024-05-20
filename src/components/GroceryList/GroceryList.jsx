@@ -1,7 +1,13 @@
-export default function GroceryList() {
+import GroceryListItem from '../GroceryListItem/GroceryListItem';
+
+export default function GroceryList({items}) {
+    const itemsList = items.map((item, idx) => (
+        <GroceryListItem item={item} key={idx} />
+    ));
+
     return (
         <>
-            <h1>GroceryList</h1>
+            <ul>{itemsList}</ul>
         </>
     );
 }
