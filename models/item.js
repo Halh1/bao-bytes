@@ -9,7 +9,7 @@ const itemSchema = new Schema ({
     },
     type: {
         type: String,
-        enum: ['Dairy', 'Vegetables', 'Fruits', 'Grains', 'Protien', 'Other'],
+        enum: ['Dairy', 'Vegetables', 'Fruits', 'Grains', 'Protein', 'Other'],
         required: true
     },
     expiration: {
