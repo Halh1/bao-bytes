@@ -1,7 +1,8 @@
-export default function GroceryListItem() {
+export default function GroceryListItem({item}) {
+    
     return (
         <>
-            <h1>GroceryListItem</h1>
+            <li>{item}</li>
         </>
     );
 }
