@@ -8,7 +8,16 @@ export default function GroceryList({items, addItem}) {
 
     return (
         <>
-            <ul>{itemsList}</ul>
+            <ul>
+            {items.map((item, index) => (
+                <li key={index}>
+                    <strong>Name:</strong> {item.name}<br />
+                    <strong>Type:</strong> {item.type}<br />
+                    <strong>Expiration:</strong> {item.expiration ? 'Yes' : 'No'}<br />
+                    <strong>Expiration Date:</strong> {item.expDate}<br />
+                </li>
+            ))}
+        </ul>
             <AddItemForm addItem={addItem}/>
         </>
     );
