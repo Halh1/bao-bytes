@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import GroceryList from '../../components/GroceryList/GroceryList';
 import { create } from '../../utilities/items-service';
+import { deleteItem } from '../../utilities/items-service';
 
 export default function GroceryListPage() {
     const [items, setItems] = useState([
@@ -13,11 +14,16 @@ export default function GroceryListPage() {
         const post = await create(item);
         setItems([...items, item]);
     }
+    async function handleDeleteItem(itemId){
+        const delItem = await deleteItem(itemId);
+        setItems(items.filter(item => item.id !== itemId ))
+
+    }
 
     return (
         <>
             <h1>GroceryListPage</h1>
-            <GroceryList items={items} addItem={addItem} />
+            <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} />
         </>
     );
 }

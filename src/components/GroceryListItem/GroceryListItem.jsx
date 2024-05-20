@@ -1,8 +1,16 @@
-export default function GroceryListItem({item}) {
+export default function GroceryListItem({item, handleDeleteItem}) {
     
+
+
     return (
         <>
-            <li>{item}</li>
+            <li>
+                <strong>Name:</strong> {item.name}<br />
+                <strong>Type:</strong> {item.type}<br />
+                <strong>Expiration:</strong> {item.expiration ? 'Yes' : 'No'}<br />
+                <strong>Expiration Date:</strong> {item.expDate}<br />
+            </li>
+            <button onClick={() => handleDeleteItem(item._id)}>Delete</button>
         </>
     );
 }

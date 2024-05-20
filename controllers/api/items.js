@@ -2,6 +2,7 @@ const Item = require('../../models/item');
 
 module.exports = {
     create,
+    delete: deleteItem
 };
 
 async function create(req, res) {
@@ -15,6 +16,16 @@ async function create(req, res) {
           });
         await newItem.save();
         res.status(201).json(newItem);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
+async function deleteItem(req, res) {
+    try {
+        const itemId = req.params.id;
+        await Item.findByIdAndDelete(itemId);
+        res.status(200).json({ message: 'Item deleted successfully' });
     } catch (error) {
         res.status(400).json(error);
     }
