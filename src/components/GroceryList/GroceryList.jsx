@@ -1,6 +1,7 @@
+import AddItemForm from '../AddItemForm/AddItemForm';
 import GroceryListItem from '../GroceryListItem/GroceryListItem';
 
-export default function GroceryList({items}) {
+export default function GroceryList({items, addItem}) {
     const itemsList = items.map((item, idx) => (
         <GroceryListItem item={item} key={idx} />
     ));
@@ -8,6 +9,7 @@ export default function GroceryList({items}) {
     return (
         <>
             <ul>{itemsList}</ul>
+            <AddItemForm addItem={addItem}/>
         </>
     );
 }
