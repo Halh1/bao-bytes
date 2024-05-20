@@ -18,7 +18,7 @@ export default function AddItemForm({addItem}) {
                 onChange={(evt) => setNewItem(evt.target.value)}
                 placeholder='add grocery item'
                 required
-                pattern='.{4,}' 
+                pattern='.{4,}'
                 />
                 <button onclick={handleItem} type="submit">Add Grocery Item</button>
             </form>
