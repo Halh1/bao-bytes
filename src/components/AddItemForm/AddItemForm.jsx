@@ -11,7 +11,7 @@ export default function AddItemForm({addItem}) {
 
     return (
         <>
-            <h1>AddItemForm</h1>
+            <h1>Add Item Form</h1>
             <form onSubmit= {handleItem}>
                 <input type="text"
                 value={newItem}
