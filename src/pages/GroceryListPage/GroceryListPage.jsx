@@ -8,10 +8,14 @@ export default function GroceryListPage() {
         "Apples"
     ]);
 
+    function addItem(item){
+        setItems([...items, item]);
+    }
+
     return (
         <>
             <h1>GroceryListPage</h1>
-            <GroceryList items={items} />
+            <GroceryList items={items} addItem={addItem} />
         </>
     );
 }
