@@ -6,3 +6,4 @@ export default function GroceryListPage() {
             <h1>GroceryListPage</h1>
         </>
     );
+}
