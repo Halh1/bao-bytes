@@ -25,16 +25,9 @@ export default function GroceryListPage() {
 
     return (
         <>
-            <h1>GroceryListPage</h1>
-            <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} />
+            <div>
+                <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} />
+            </div>
         </>
     );
 }
-
-
-
-// [
-//     // { name: "Milk", type: "Dairy", expiration: true, expDate: "2023-06-15" },
-//     // { name: "Eggs", type: "Protein", expiration: true, expDate: "2023-06-20" },
-//     // { name: "Apples", type: "Fruits", expiration: true, expDate: "2023-06-25" }
-// ]
