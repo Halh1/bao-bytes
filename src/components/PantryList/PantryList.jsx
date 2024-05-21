@@ -12,14 +12,3 @@ export default function PantryList({item, handleDeleteItem}) {
         </>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
