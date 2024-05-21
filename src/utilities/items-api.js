@@ -7,6 +7,6 @@ export async function create(newItem) {
 export async function deleteItem(itemId) {
     return sendRequest( `${BASE_URL}/${itemId}`, 'DELETE'); 
 }
-export async function index() {
-    return sendRequest(BASE_URL);
+export async function index(userId) {
+    return sendRequest(`${BASE_URL}/user/${userId}`);
 }

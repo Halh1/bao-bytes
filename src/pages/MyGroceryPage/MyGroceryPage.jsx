@@ -4,7 +4,9 @@ import Pantry from '../../components/Pantry/Pantry';
 import { getItems, create, deleteItem } from '../../utilities/items-service';
 import './MyGroceryPage.css';
 
-export default function MyGroceryPage() {
+
+export default function MyGroceryPage({user}) {
+    const userId = user._id; 
     const [items, setItems] = useState([]);
 
     async function addItem(item){
@@ -18,11 +20,11 @@ export default function MyGroceryPage() {
     }
     useEffect(function () {
         async function getAllItems() {
-          const items = await getItems()
+          const items = await getItems(userId)
           setItems(items)
         }
         getAllItems()
-      }, [])
+      }, [userId])
 
 
     return (
