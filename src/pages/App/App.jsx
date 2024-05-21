@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Navigate, Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
@@ -18,6 +18,7 @@ export default function App() {
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/grocery" element={<MyGroceryPage user={user} />} />
+            <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
         </>
         :
