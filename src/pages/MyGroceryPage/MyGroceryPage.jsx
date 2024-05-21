@@ -31,7 +31,7 @@ export default function MyGroceryPage({user}) {
         <>
             <div className='grocery-container'>
                 <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} />
-                <Pantry />
+                <Pantry items={items} handleDeleteItem={handleDeleteItem}/>
             </div>
         </>
     );
