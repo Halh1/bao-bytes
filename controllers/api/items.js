@@ -1,11 +1,12 @@
 const Item = require('../../models/item');
 const GroceryList = require('../../models/groceryList');
-
+const pantry = require('../../models/pantry');
 module.exports = {
     create,
     delete: deleteItem,
     index,
-    getUserItems
+    getUserItems,
+    getPantryItems
 };
 
 async function create(req, res) {
@@ -56,6 +57,15 @@ async function getUserItems(req, res) {
         const userId = req.params.userId;
         const groceryList = await GroceryList.findOne({ user: userId }).populate('list');
         res.json(groceryList.list);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+async function getPantryItems(req, res) {
+    try {
+        const userId = req.params.userId;
+        const pantryList = await pantry.findOne({ user: userId }).populate('list');
+        res.json(pantryList.list);
     } catch (error) {
         res.status(400).json(error);
     }
