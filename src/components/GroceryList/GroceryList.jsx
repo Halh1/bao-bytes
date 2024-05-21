@@ -3,7 +3,7 @@ import GroceryListItem from '../GroceryListItem/GroceryListItem';
 
 
 export default function GroceryList({items, addItem, handleDeleteItem}) {
-    const itemsList = items.map((item, idx) => (
+    const itemsList = items?.map((item, idx) => (
         <GroceryListItem item={item} key={idx} handleDeleteItem={handleDeleteItem} />
     ));
 
