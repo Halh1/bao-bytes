@@ -6,7 +6,8 @@ module.exports = {
     delete: deleteItem,
     index,
     getUserItems,
-    getPantryItems
+    getPantryItems,
+    transferItem
 };
 
 async function create(req, res) {
@@ -66,6 +67,26 @@ async function getPantryItems(req, res) {
         const userId = req.params.userId;
         const pantryList = await pantry.findOne({ user: userId }).populate('list');
         res.json(pantryList.list);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
+async function transferItem(req, res) {
+    try {
+        const itemId = req.params.itemId;
+        const userId = req.user._id;
+        const groceryList = await GroceryList.findOne({ user: userId });
+        const pantryList = await pantry.findOne({ user: userId });
+        const item = await Item.findById(itemId);
+
+        groceryList.list = groceryList.list.filter(item => item.toString() !== itemId);
+        pantryList.list.push(item);
+
+        await groceryList.save();
+        await pantryList.save();
+
+        res.status(200).json({ message: 'Item transferred successfully' });
     } catch (error) {
         res.status(400).json(error);
     }

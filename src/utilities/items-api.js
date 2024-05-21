@@ -13,3 +13,6 @@ export async function pantryIndex(userId) {
 export async function index(userId) {
     return sendRequest(`${BASE_URL}/user/${userId}`);
 }
+export async function transferItem(itemId) {
+    return sendRequest(`${BASE_URL}/transfer/${itemId}`, 'POST');
+}
