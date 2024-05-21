@@ -1,16 +1,18 @@
 import {useState, useEffect} from 'react';
 import GroceryList from '../../components/GroceryList/GroceryList';
+import Pantry from '../../components/Pantry/Pantry';
 import { getItems, create, deleteItem } from '../../utilities/items-service';
+import './MyGroceryPage.css';
 
-export default function GroceryListPage() {
+export default function MyGroceryPage() {
     const [items, setItems] = useState([]);
 
     async function addItem(item){
-        const post = await create(item);
+        await create(item);
         setItems([...items, item]);
     }
     async function handleDeleteItem(itemId){
-        const delItem = await deleteItem(itemId);
+        await deleteItem(itemId);
         setItems(items.filter(item => item._id !== itemId ))
 
     }
@@ -25,8 +27,9 @@ export default function GroceryListPage() {
 
     return (
         <>
-            <div>
+            <div className='grocery-container'>
                 <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} />
+                <Pantry />
             </div>
         </>
     );
