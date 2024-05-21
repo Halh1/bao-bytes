@@ -7,11 +7,14 @@ export default function GroceryList({items, addItem, handleDeleteItem}) {
         <GroceryListItem item={item} key={idx} handleDeleteItem={handleDeleteItem} />
     ));
 
+    const exp = false;
+
     return (
-        <>
+        <div>
+            <h1>Grocery List</h1>
             <ul>{itemsList}</ul>
 
-            <AddItemForm addItem={addItem}/>
-        </>
+            <AddItemForm addItem={addItem} exp={exp}/>
+        </div>
     );
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function AddItemForm({addItem}) {
+export default function AddItemForm({addItem, exp}) {
     const [newItem, setNewItem] = useState({
         name: '',
         type: 'Other',
@@ -45,6 +45,7 @@ export default function AddItemForm({addItem}) {
                     <option value="Protein">Protein</option>
                     <option value="Other">Other</option>
                 </select>
+                { exp ?
                 <input
                     type="date"
                     name="expDate"
@@ -52,6 +53,8 @@ export default function AddItemForm({addItem}) {
                     onChange={handleChange}
                     required
                 />
+                : null
+                }
                 <button type="submit">Add Grocery Item</button>
             </form>
         </>

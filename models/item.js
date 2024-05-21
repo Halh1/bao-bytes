@@ -14,12 +14,11 @@ const itemSchema = new Schema ({
     },
     expiration: {
         type: Boolean,
-        default: true,
-        required: true
+        default: false,
     },
     expDate:{
         type: Date,
-        required: true
+        default: null,
     } 
 }, {
     timestamps: true
