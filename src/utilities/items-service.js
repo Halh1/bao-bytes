@@ -13,3 +13,6 @@ export async function getItems(userId) {
 export async function getPantry(userId) {
     return itemsAPI.pantryIndex(userId);
 }
+export async function transferItem(itemId) {
+    return itemsAPI.transferItem(itemId);
+}

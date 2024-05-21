@@ -2,9 +2,9 @@ import AddItemForm from '../AddItemForm/AddItemForm';
 import GroceryListItem from '../GroceryListItem/GroceryListItem';
 
 
-export default function GroceryList({items, addItem, handleDeleteItem}) {
+export default function GroceryList({items, addItem, handleDeleteItem, handleTransferItem}) {
     const itemsList = items?.map((item, idx) => (
-        <GroceryListItem item={item} key={idx} handleDeleteItem={handleDeleteItem} />
+        <GroceryListItem item={item} key={idx} handleDeleteItem={handleDeleteItem} handleTransferItem={handleTransferItem} />
     ));
 
     const exp = false;
