@@ -1,4 +1,5 @@
 const Item = require('../../models/item');
+const GroceryList = require('../../models/groceryList');
 
 module.exports = {
     create,
@@ -16,6 +17,12 @@ async function create(req, res) {
             expDate
           });
         await newItem.save();
+
+        const userId = req.user._id;
+        const groceryList = await GroceryList.findOne({ user: userId });
+        groceryList.list.push(newItem);
+        await groceryList.save();
+
         res.status(201).json(newItem);
     } catch (error) {
         res.status(400).json(error);
