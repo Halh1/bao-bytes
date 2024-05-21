@@ -10,3 +10,6 @@ export async function deleteItem(itemId) {
 export async function getItems(userId) {
     return itemsAPI.index(userId);
 }
+export async function getPantry(userId) {
+    return itemsAPI.pantryIndex(userId);
+}
