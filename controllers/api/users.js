@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
 const GroceryList = require('../../models/groceryList');
+const Pantry = require('../../models/pantry');
 
 module.exports = {
     create,
@@ -19,6 +20,12 @@ async function create(req, res) {
             list: []
         });
         await groceryList.save();
+
+        const pantry = new Pantry({
+            user: user._id,
+            list: []
+        });
+        await pantry.save();
         
         res.json(token);
     } catch (error) {
