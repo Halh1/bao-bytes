@@ -7,6 +7,6 @@ export async function deleteItem(itemId) {
     return itemsAPI.deleteItem(itemId);
 }
 
-export async function getItems() {
-    return itemsAPI.index();
+export async function getItems(userId) {
+    return itemsAPI.index(userId);
 }

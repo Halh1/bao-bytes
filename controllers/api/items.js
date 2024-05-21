@@ -4,7 +4,8 @@ const GroceryList = require('../../models/groceryList');
 module.exports = {
     create,
     delete: deleteItem,
-    index
+    index,
+    getUserItems
 };
 
 async function create(req, res) {
@@ -49,4 +50,13 @@ async function index(req, res) {
     } catch (error) {
         res.status(400).json(error);
     }      
+}
+async function getUserItems(req, res) {
+    try {
+        const userId = req.params.userId;
+        const groceryList = await GroceryList.findOne({ user: userId }).populate('list');
+        res.json(groceryList.list);
+    } catch (error) {
+        res.status(400).json(error);
+    }
 }

@@ -17,7 +17,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/home" element={<HomePage />} />
-            <Route path="/grocery" element={<MyGroceryPage />} />
+            <Route path="/grocery" element={<MyGroceryPage user={user} />} />
           </Routes>
         </>
         :

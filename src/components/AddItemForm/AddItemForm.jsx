@@ -4,7 +4,7 @@ export default function AddItemForm({addItem, exp}) {
     const [newItem, setNewItem] = useState({
         name: '',
         type: 'Other',
-        expiration: true,
+        expiration: false,
         expDate: ''
     });
 
@@ -19,7 +19,7 @@ export default function AddItemForm({addItem, exp}) {
         setNewItem({
             name: '',
             type: 'Other',
-            expiration: true,
+            expiration: false,
             expDate: ''
         });
     }
