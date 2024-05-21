@@ -1,0 +1,7 @@
+.grocery-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6vmin;
+    margin: 0 20px;
+}
