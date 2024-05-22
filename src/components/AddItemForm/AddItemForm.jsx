@@ -8,9 +8,11 @@ export default function AddItemForm({addItem, exp}) {
         expDate: ''
     });
 
+    const btnWord = exp ? 'Add Pantry Item' : 'Add Grocery Item';
+
     function handleChange(evt) {
-        const { name, value } = evt.target;
-        setNewItem({ ...newItem, [name]: value });
+        const { name, value, type, checked } = evt.target;
+        setNewItem({ ...newItem, [name]: type === 'checkbox' ? checked : value,});
     }
 
     function handleSubmit(evt) {
@@ -24,6 +26,7 @@ export default function AddItemForm({addItem, exp}) {
         });
     }
 
+
     return (
         <>
             <h1>Add Item Form</h1>
@@ -33,7 +36,7 @@ export default function AddItemForm({addItem, exp}) {
                     name="name"
                     value={newItem.name}
                     onChange={handleChange}
-                    placeholder="Add grocery item"
+                    placeholder="Add item"
                     required
                     pattern=".{4,}"
                 />
@@ -46,16 +49,28 @@ export default function AddItemForm({addItem, exp}) {
                     <option value="Other">Other</option>
                 </select>
                 { exp ?
-                <input
-                    type="date"
-                    name="expDate"
-                    value={newItem.expDate}
-                    onChange={handleChange}
-                    required
-                />
+                <>
+                    <input
+                        type="checkbox"
+                        name="expiration"
+                        checked={newItem.expiration}
+                        onChange={handleChange}
+                    />
+                    <label>Expiration</label>
+                    { newItem.expiration ?
+                    <input
+                        type="date"
+                        name="expDate"
+                        value={newItem.expDate}
+                        onChange={handleChange}
+                        required
+                    />
+                    : null
+                    }
+                </>
                 : null
                 }
-                <button type="submit">Add Grocery Item</button>
+                <button type="submit">{btnWord}</button>
             </form>
         </>
     );

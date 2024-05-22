@@ -14,7 +14,7 @@ module.exports = {
 
 async function create(req, res) {
     try {
-        const { name, type, expiration, expDate } = req.body;
+        const { name, type, expiration, expDate, location } = req.body;
         const newItem = new Item({
             name,
             type,
@@ -24,9 +24,15 @@ async function create(req, res) {
         await newItem.save();
 
         const userId = req.user._id;
-        const groceryList = await GroceryList.findOne({ user: userId });
-        groceryList.list.push(newItem);
-        await groceryList.save();
+        if (location === 'pantry') {
+            const pantryList = await pantry.findOne({ user: userId });
+            pantryList.list.push(newItem);
+            await pantryList.save();
+        } else {
+            const groceryList = await GroceryList.findOne({ user: userId });
+            groceryList.list.push(newItem);
+            await groceryList.save();
+        }
 
         res.status(201).json(newItem);
     } catch (error) {
