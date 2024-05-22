@@ -13,6 +13,6 @@ export default function Pantry({ pantryItems, addItem, handleDeletePantryItem, h
                 {itemsList}
             </ul>
             <AddItemForm addItem={(item) => addItem(item, 'pantry')} exp={exp} />
-        </div>
+        </div> 
     );
 }
