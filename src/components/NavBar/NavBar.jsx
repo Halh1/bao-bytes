@@ -14,12 +14,24 @@ export default function NavBar({ user, setUser }) {
             <div className='nav-left'>
                 <Link to="/home">Home</Link>
                 &nbsp;&nbsp;
+                {user ? 
                 <Link to="/grocery">My Groceries</Link>
+                : null
+                }
             </div>
             <div className='nav-right'>
-                <span>Welcome back, {user.name}</span>
-                &ensp;
-                <Link to="" onClick={handleLogOut}><button>Log Out</button></Link>
+                { user ?
+                <>
+                    <span>Welcome back, {user.name}</span>
+                    &ensp;
+                    <Link to="" onClick={handleLogOut}><button>Log Out</button></Link>
+                </>
+                :
+                <div>
+                    <Link to="/login"><button>Log In</button></Link>
+                </div>
+                }
+                
             </div>
         </nav>
     );

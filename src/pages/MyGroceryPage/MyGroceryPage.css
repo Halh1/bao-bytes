@@ -4,3 +4,8 @@
     padding: .6vmin;
     margin: 0 20px;
 }
+
+.grocery-container div {
+    flex: 1;
+    margin: 0 10px;
+}

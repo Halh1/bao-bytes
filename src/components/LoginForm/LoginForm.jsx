@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
 
 export default function LoginForm({ setUser }) {
@@ -29,7 +30,7 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className="form-container">
+      <div className="form-container" style={{margin: "30px"}}>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Email</label>
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
@@ -37,6 +38,7 @@ export default function LoginForm({ setUser }) {
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
           <button type="submit">LOG IN</button>
         </form>
+        <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
       </div>
       <p className="error-message">&nbsp;{error}</p>
     </div>
