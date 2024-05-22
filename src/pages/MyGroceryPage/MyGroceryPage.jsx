@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import GroceryList from '../../components/GroceryList/GroceryList';
 import Pantry from '../../components/Pantry/Pantry';
-import { getItems, create, deleteItem, getPantry, transferItem } from '../../utilities/items-service';
+import { getItems, create, deleteItem, getPantry, transferItem, deletePantryItems } from '../../utilities/items-service';
 import './MyGroceryPage.css';
 
 
@@ -12,18 +12,27 @@ export default function MyGroceryPage({user}) {
 
     async function addItem(item){
         await create(item);
-        setItems([...items, item]);
+        const allItems = await getItems(user._id)
+        setItems(allItems);
     }
     async function handleDeleteItem(itemId){
         await deleteItem(itemId);
-        setItems(items.filter(item => item._id !== itemId ))
+        const updateItems = await getItems(userId);
+        setItems(updateItems);
     }
     async function handleTransferItem(itemId){
         console.log("Transfer Item Id:", itemId);
         await transferItem(itemId);
-        const transferredItem = items.find(item => item._id === itemId);
-        setItems(items.filter(item => item._id !== itemId ));
-        setPantryItems([...pantryItems, transferredItem]);
+        const transferredItems = await getPantry(userId);
+        const updateItems = await getItems(userId);
+        setItems(updateItems);
+        setPantryItems(transferredItems);
+    }
+
+    async function handleDeletePantryItem(itemId){
+        await deletePantryItems(itemId, userId);
+        const transferredItems = await getPantry(userId);
+        setPantryItems(transferredItems);
     }
 
     useEffect(function () {
@@ -46,7 +55,7 @@ export default function MyGroceryPage({user}) {
         <>
             <div className='grocery-container'>
                 <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} handleTransferItem={handleTransferItem} />
-                <Pantry pantryItems={pantryItems} handleDeleteItem={handleDeleteItem}/>
+                <Pantry pantryItems={pantryItems} handleDeletePantryItem={handleDeletePantryItem}/>
             </div>
         </>
     );
