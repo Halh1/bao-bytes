@@ -10,10 +10,16 @@ export default function MyGroceryPage({user}) {
     const [items, setItems] = useState([]);
     const [pantryItems, setPantryItems] = useState([]);
 
-    async function addItem(item){
-        await create(item);
+    async function addItem(item, location){
+        console.log("Location:", location);
+        await create(item, location);
+        if (location === 'pantry'){
+            const pantryItems = await getPantry(userId);
+            setPantryItems(pantryItems);
+        } else {
         const allItems = await getItems(user._id)
         setItems(allItems);
+        }
     }
     async function handleDeleteItem(itemId){
         await deleteItem(itemId);
@@ -60,8 +66,8 @@ export default function MyGroceryPage({user}) {
     return (
         <>
             <div className='grocery-container'>
-                <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} handleTransferItem={handleTransferItem} />
-                <Pantry pantryItems={pantryItems} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
+                <GroceryList items={items} addItem={(item) => addItem(item, 'groceryList')} handleDeleteItem={handleDeleteItem} handleTransferItem={handleTransferItem} />
+                <Pantry pantryItems={pantryItems} addItem={(item) => addItem(item, 'pantry')} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
             </div>
         </>
     );

@@ -1,6 +1,8 @@
 import PantryList from '../PantryList/PantryList';
+import AddItemForm from '../AddItemForm/AddItemForm';
 
-export default function Pantry({ pantryItems, handleDeletePantryItem, handleEditPantryItem}){
+export default function Pantry({ pantryItems, addItem, handleDeletePantryItem, handleEditPantryItem}){
+    const exp = true;
     const itemsList = pantryItems?.map((item, idx) => (
         <PantryList item={item} key={idx} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
     ));
@@ -10,7 +12,7 @@ export default function Pantry({ pantryItems, handleDeletePantryItem, handleEdit
             <ul>
                 {itemsList}
             </ul>
+            <AddItemForm addItem={(item) => addItem(item, 'pantry')} exp={exp} />
         </div>
-
     );
 }
