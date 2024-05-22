@@ -6,7 +6,6 @@ export async function create(item) {
 export async function deleteItem(itemId) {
     return itemsAPI.deleteItem(itemId);
 }
-
 export async function getItems(userId) {
     return itemsAPI.index(userId);
 }
@@ -15,4 +14,7 @@ export async function getPantry(userId) {
 }
 export async function transferItem(itemId) {
     return itemsAPI.transferItem(itemId);
+}
+export async function deletePantryItems(itemId, userId) {
+    return itemsAPI.deletePantryItems(itemId, userId);
 }

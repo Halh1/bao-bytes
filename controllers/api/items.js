@@ -7,7 +7,8 @@ module.exports = {
     index,
     getUserItems,
     getPantryItems,
-    transferItem
+    transferItem,
+    deletePantryItems
 };
 
 async function create(req, res) {
@@ -90,4 +91,15 @@ async function transferItem(req, res) {
     } catch (error) {
         res.status(400).json(error);
     }
+}
+
+async function deletePantryItems(req, res) {
+   try { const userPantry = await pantry.findOne({'user': req.params.userId})
+    userPantry.list.remove(req.params.itemId);
+    await Item.findByIdAndDelete(req.params.itemId);
+    await userPantry.save();
+    res.status(200).json({ message: 'Item deleted successfully' });
+} catch (error) {
+    res.json(error);
+}
 }

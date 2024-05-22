@@ -1,4 +1,4 @@
-export default function PantryList({item, handleDeleteItem}) {
+export default function PantryList({item, handleDeletePantryItem}) {
 
     return (
         <>
@@ -8,7 +8,7 @@ export default function PantryList({item, handleDeleteItem}) {
                 <strong>Expiration:</strong> {item.expiration ? 'Yes' : 'No'}<br />
                 <strong>Expiration Date:</strong> {item.expDate}<br />
             </li>
-            <button onClick={() => handleDeleteItem(item._id)}>Delete</button>
+            <button onClick={() => handleDeletePantryItem(item._id)}>Delete</button>
         </>
     );
 }

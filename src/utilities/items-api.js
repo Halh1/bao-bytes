@@ -16,3 +16,6 @@ export async function index(userId) {
 export async function transferItem(itemId) {
     return sendRequest(`${BASE_URL}/transfer/${itemId}`, 'POST');
 }
+export async function deletePantryItems(itemId, userId) {
+    return sendRequest(`${BASE_URL}/user/${userId}/pantry/${itemId}`,'DELETE');
+}
