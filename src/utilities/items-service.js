@@ -18,3 +18,6 @@ export async function transferItem(itemId) {
 export async function deletePantryItems(itemId, userId) {
     return itemsAPI.deletePantryItems(itemId, userId);
 }
+export async function editItem(item) {
+    return itemsAPI.editItem(item);
+}
