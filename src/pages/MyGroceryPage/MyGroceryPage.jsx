@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import GroceryList from '../../components/GroceryList/GroceryList';
 import Pantry from '../../components/Pantry/Pantry';
-import { getItems, create, deleteItem, getPantry, transferItem, deletePantryItems } from '../../utilities/items-service';
+import { getItems, create, deleteItem, getPantry, transferItem, deletePantryItems, editItem } from '../../utilities/items-service';
 import './MyGroceryPage.css';
 
 
@@ -35,6 +35,12 @@ export default function MyGroceryPage({user}) {
         setPantryItems(transferredItems);
     }
 
+    async function handleEditPantryItem(editedItem){
+        await editItem(editedItem);
+        const updatedPantryItems = await getPantry(userId);
+        setPantryItems(updatedPantryItems);
+    }
+
     useEffect(function () {
         async function getAllItems() {
           const items = await getItems(userId)
@@ -55,7 +61,7 @@ export default function MyGroceryPage({user}) {
         <>
             <div className='grocery-container'>
                 <GroceryList items={items} addItem={addItem} handleDeleteItem={handleDeleteItem} handleTransferItem={handleTransferItem} />
-                <Pantry pantryItems={pantryItems} handleDeletePantryItem={handleDeletePantryItem}/>
+                <Pantry pantryItems={pantryItems} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
             </div>
         </>
     );

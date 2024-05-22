@@ -1,8 +1,8 @@
 import PantryList from '../PantryList/PantryList';
 
-export default function Pantry({ pantryItems, handleDeletePantryItem}){
+export default function Pantry({ pantryItems, handleDeletePantryItem, handleEditPantryItem}){
     const itemsList = pantryItems?.map((item, idx) => (
-        <PantryList item={item} key={idx} handleDeletePantryItem={handleDeletePantryItem} />
+        <PantryList item={item} key={idx} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
     ));
     return (
         <div>

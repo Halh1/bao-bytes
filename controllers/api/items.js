@@ -8,7 +8,8 @@ module.exports = {
     getUserItems,
     getPantryItems,
     transferItem,
-    deletePantryItems
+    deletePantryItems,
+    update,
 };
 
 async function create(req, res) {
@@ -102,4 +103,13 @@ async function deletePantryItems(req, res) {
 } catch (error) {
     res.json(error);
 }
+}
+
+async function update(req, res) {
+    try {
+        const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.status(200).json(updatedItem);
+    } catch (error) {
+        res.status(400).json(error);
+    }
 }
