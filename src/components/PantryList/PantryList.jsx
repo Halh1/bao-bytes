@@ -22,7 +22,7 @@ export default function PantryList({item, handleDeletePantryItem, handleEditPant
                             <>
                             <strong>Expiration Date: </strong> {new Date(item.expDate).toDateString()}<br />
                             </>
-                        : null
+                        : null 
                         }
                    
                     <button onClick={() => setIsEditing(true)}>Edit</button>
