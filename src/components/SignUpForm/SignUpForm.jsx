@@ -1,20 +1,20 @@
-import { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { signUp } from '../../utilities/users-service';
+import { Component } from "react";
+import { Link } from "react-router-dom";
+import { signUp } from "../../utilities/users-service";
 
 export default class SignUpForm extends Component {
     state = {
-        name: '',
-        email: '',
-        password: '',
-        confirm: '',
-        error: '',
+        name: "",
+        email: "",
+        password: "",
+        confirm: "",
+        error: "",
     }
 
     handleChange = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value,
-            error: '',
+            error: "",
         });
     };
 
@@ -27,7 +27,7 @@ export default class SignUpForm extends Component {
             const user = await signUp(formData);
             this.props.setUser(user);
         } catch (error) {
-            this.setState({error: 'Sign up failed - Try again'});
+            this.setState({error: "Sign up failed - Try again"});
         }
     }
 

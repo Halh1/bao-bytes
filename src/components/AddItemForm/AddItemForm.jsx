@@ -1,28 +1,28 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function AddItemForm({addItem, exp}) {
     const [newItem, setNewItem] = useState({
-        name: '',
-        type: 'Other',
+        name: "",
+        type: "Other",
         expiration: false,
-        expDate: ''
+        expDate: ""
     });
 
-    const btnWord = exp ? 'Add Pantry Item' : 'Add Grocery Item';
+    const btnWord = exp ? "Add Pantry Item" : "Add Grocery Item";
 
     function handleChange(evt) {
         const { name, value, type, checked } = evt.target;
-        setNewItem({ ...newItem, [name]: type === 'checkbox' ? checked : value,});
+        setNewItem({ ...newItem, [name]: type === "checkbox" ? checked : value,});
     }
 
     function handleSubmit(evt) {
         evt.preventDefault();
         addItem(newItem);
         setNewItem({
-            name: '',
+            name: "",
             type: 'Other',
             expiration: false,
-            expDate: ''
+            expDate: ""
         });
     }
 
@@ -37,7 +37,7 @@ export default function AddItemForm({addItem, exp}) {
                     onChange={handleChange}
                     placeholder="Add item"
                     required
-                    pattern=".{4,}"
+                    pattern=".{3,}"
                 />
                 <select name="type" value={newItem.type} onChange={handleChange}>
                     <option value="Dairy">Dairy</option>

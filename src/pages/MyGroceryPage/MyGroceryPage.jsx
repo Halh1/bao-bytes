@@ -13,7 +13,7 @@ export default function MyGroceryPage({user}) {
     async function addItem(item, location){
         console.log("Location:", location);
         await create(item, location);
-        if (location === 'pantry'){
+        if (location === "pantry"){
             const pantryItems = await getPantry(userId);
             setPantryItems(pantryItems);
         } else {
@@ -65,9 +65,9 @@ export default function MyGroceryPage({user}) {
 
     return (
         <>
-            <div className='grocery-container'>
-                <GroceryList items={items} addItem={(item) => addItem(item, 'groceryList')} handleDeleteItem={handleDeleteItem} handleTransferItem={handleTransferItem} />
-                <Pantry pantryItems={pantryItems} addItem={(item) => addItem(item, 'pantry')} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
+            <div className="grocery-container">
+                <GroceryList items={items} addItem={(item) => addItem(item, "groceryList")} handleDeleteItem={handleDeleteItem} handleTransferItem={handleTransferItem} />
+                <Pantry pantryItems={pantryItems} addItem={(item) => addItem(item, "pantry")} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
             </div>
         </>
     );
