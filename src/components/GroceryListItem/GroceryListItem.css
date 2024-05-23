@@ -27,6 +27,11 @@ button:hover {
     background-color: #e4a6a6;
 }
 
+.btn-container {
+    display: flex;
+    justify-content: right;
+}
+
 li[data-type="Dairy"]::before {
     content: '🧀';
     margin-right: 10px;
