@@ -1,11 +1,13 @@
-import './App.css';
+import "./App.css";
+import "../../components/Footer/Footer.css";
 import { useState } from 'react';
-import { Navigate, Routes, Route } from 'react-router-dom';
-import { getUser } from '../../utilities/users-service';
-import AuthPage from '../AuthPage/AuthPage';
-import HomePage from '../HomePage/HomePage';
-import MyGroceryPage from '../MyGroceryPage/MyGroceryPage';
-import NavBar from '../../components/NavBar/NavBar'
+import { Navigate, Routes, Route } from "react-router-dom";
+import { getUser } from "../../utilities/users-service";
+import AuthPage from "../AuthPage/AuthPage";
+import HomePage from "../HomePage/HomePage";
+import MyGroceryPage from "../MyGroceryPage/MyGroceryPage";
+import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -29,6 +31,7 @@ export default function App() {
           </>
         )}
       </Routes>
+      <Footer />
     </main>
   );
 }

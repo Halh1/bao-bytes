@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import '../EditItemForm/EditItemForm.css';
+import { useState } from "react";
+
 
 export default function EditItemForm({item, handleUpdateItem}) {
     const [formData, setFormData] = useState({
@@ -12,7 +12,7 @@ export default function EditItemForm({item, handleUpdateItem}) {
 
     function handleChange(evt) {
         const { name, value, type, checked } = evt.target;
-        setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value,});
+        setFormData({ ...formData, [name]: type === "checkbox" ? checked : value,});
     }
 
     function handleSubmit(evt) {
@@ -31,7 +31,7 @@ export default function EditItemForm({item, handleUpdateItem}) {
                         onChange={handleChange}
                         placeholder="Edit grocery item"
                         required
-                        pattern=".{4,}"
+                        pattern=".{3,}"
                     />
                     <select name="type" value={formData.type} onChange={handleChange}>
                         <option value="Dairy">Dairy</option>
