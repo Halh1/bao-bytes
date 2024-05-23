@@ -15,7 +15,7 @@ export default function PantryList({item, handleDeletePantryItem, handleEditPant
                 <EditItemForm item={item} handleUpdateItem={handleUpdateItem} />
             ) : (
                 <div>
-                    <strong>Name:</strong> {item.name}<br />
+                    <strong>Name:</strong> {item.name.charAt(0).toUpperCase() + item.name.slice(1)}<br />
                     <strong>Type:</strong> {item.type}<br />
                     
                         {item.expiration ? 
