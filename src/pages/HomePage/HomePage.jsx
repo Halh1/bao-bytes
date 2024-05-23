@@ -19,7 +19,7 @@ export default function HomePage({user}) {
                     }
                 </div>
                 <div>
-                    <img src="https://imageio.forbes.com/specials-images/imageserve/5f8ceed2e11880c542eca6b1/Woman-shopping-at-the-grocery-store-wearing-a-facemask/960x0.jpg?format=jpg&width=960" alt="" />
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/5f8ceed2e11880c542eca6b1/Woman-shopping-at-the-grocery-store-wearing-a-facemask/960x0.jpg?format=jpg&width=960" />
                 </div>
             </div>
         </>
