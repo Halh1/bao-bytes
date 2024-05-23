@@ -21,7 +21,7 @@ export default function EditItemForm({item, handleUpdateItem}) {
 
     return (
         <>
-            <h1>Edit Item Form</h1>
+            <h1>Edit</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
