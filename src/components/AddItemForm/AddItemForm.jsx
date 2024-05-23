@@ -29,7 +29,6 @@ export default function AddItemForm({addItem, exp}) {
 
     return (
         <>
-            <h2>Add</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
