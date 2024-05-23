@@ -7,7 +7,7 @@ export default function Pantry({ pantryItems, addItem, handleDeletePantryItem, h
         <PantryList item={item} key={idx} handleDeletePantryItem={handleDeletePantryItem} handleEditPantryItem={handleEditPantryItem} />
     ));
     return (
-        <div>
+        <div className='container'>
             <h1>Pantry & Fridge Items</h1>
             <ul>
                 {itemsList}

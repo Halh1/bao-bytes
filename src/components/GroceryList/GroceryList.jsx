@@ -10,7 +10,7 @@ export default function GroceryList({items, addItem, handleDeleteItem, handleTra
     const exp = false;
 
     return (
-        <div>
+        <div className='container'>
             <h1>Grocery List</h1>
             <ul>{itemsList}</ul>
 
