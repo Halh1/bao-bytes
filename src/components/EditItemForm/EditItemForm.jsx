@@ -22,7 +22,6 @@ export default function EditItemForm({item, handleUpdateItem}) {
 
     return (
         < main className='parent-container'>
-            <h3 className='EditTitle'>Edit:</h3>
             <div>
                 <form onSubmit={handleSubmit}>
                     <input
