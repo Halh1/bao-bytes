@@ -1,13 +1,13 @@
-export default function GroceryListItem({item, handleDeleteItem, handleTransferItem}) {
+import './GroceryListItem.css';
 
+const GroceryListItem = ({ item, handleDeleteItem, handleTransferItem }) => {
     return (
-        <>
-            <li>
-                <strong>Name:</strong> {item.name}<br />
-                <strong>Type:</strong> {item.type}<br />
-            </li>
-            <button onClick={() => handleTransferItem(item._id)} >Transfer</button>
+        <li data-type={item.type}>
+            {item.name}
             <button onClick={() => handleDeleteItem(item._id)}>Delete</button>
-        </>
+            <button onClick={() => handleTransferItem(item._id)}>Transfer</button>
+        </li>
     );
-}
+};
+
+export default GroceryListItem;

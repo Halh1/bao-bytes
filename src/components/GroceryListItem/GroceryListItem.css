@@ -1,0 +1,58 @@
+li {
+    display: flex;
+    align-items: center;
+    background-color: #e6dada;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-3px);
+}
+
+button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #e5878b;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e4a6a6;
+}
+
+li[data-type="Dairy"]::before {
+    content: '🧀';
+    margin-right: 10px;
+}
+
+li[data-type="Vegetables"]::before {
+    content: '🥦';
+    margin-right: 10px;
+}
+
+li[data-type="Fruits"]::before {
+    content: '🍎';
+    margin-right: 10px;
+}
+
+li[data-type="Grains"]::before {
+    content: '🌾';
+    margin-right: 10px;
+}
+
+li[data-type="Protein"]::before {
+    content: '🍗';
+    margin-right: 10px;
+}
+
+li[data-type="Other"]::before {
+    content: '🍪🥤';
+    margin-right: 10px;
+}
