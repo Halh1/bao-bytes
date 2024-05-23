@@ -4,7 +4,14 @@ Bao Bytes is an intuitive web application built on the MERN stack, designed to s
 
 # :camera_flash: Screenshots
 
-Coming Soon
+  ### First Page
+<img src='/public/FirstPage.png' >
+
+  ### Logged In Page
+<img src='/public/LoginInHomePage.png'>
+
+  ### Grocery & Pantry Page
+<img src='' >
 
 # :computer: Technologies Used
 

@@ -29,7 +29,7 @@ export default function AddItemForm({addItem, exp}) {
 
     return (
         <>
-            <h1>Add</h1>
+            <h2>Add</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

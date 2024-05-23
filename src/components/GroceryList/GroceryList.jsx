@@ -1,5 +1,6 @@
 import AddItemForm from '../AddItemForm/AddItemForm';
 import GroceryListItem from '../GroceryListItem/GroceryListItem';
+import './GroceryList.css';
 
 export default function GroceryList({items, addItem, handleDeleteItem, handleTransferItem}) {
     const itemsList = items?.map((item, idx) => (
