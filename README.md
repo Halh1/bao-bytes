@@ -24,8 +24,12 @@ Bao Bytes is an intuitive web application built on the MERN stack, designed to s
 
 # :fire: Getting Started
 
-Coming Soon
+[Click to View Project Planning](https://trello.com/invite/b/0zW6FFCu/ATTId80a7808ac746c229b0fb6447d62df67358FD2C1/project-4-grocery-list)
+
+[Click to access the Bao Bytes application!](https://bao-bytes-371e040e1e1c.herokuapp.com/home)
 
 # :next_track_button: Next Steps
 
-Coming Soon
+- Implement a reminder feature where users are alerted when items in their pantry are about to expire
+- Enable features for family or shared accounts where multiple users can add to and modify the grocery and pantry lists
+
