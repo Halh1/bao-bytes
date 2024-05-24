@@ -12,6 +12,11 @@ export default function Pantry({ pantryItems, addItem, handleDeletePantryItem, h
             <ul>
                 {itemsList}
             </ul>
+            { itemsList.length ?
+                null
+                :
+                <p>Your pantry is empty. Add items below:</p>
+            }
             <AddItemForm addItem={(item) => addItem(item, 'pantry')} exp={exp} />
         </div> 
     );

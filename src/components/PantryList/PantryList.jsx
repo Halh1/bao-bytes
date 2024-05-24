@@ -20,7 +20,7 @@ export default function PantryList({item, handleDeletePantryItem, handleEditPant
                     
                         {item.expiration ? 
                             <>
-                            <strong>Expiration Date: </strong> {new Date(item.expDate).toDateString()}<br />
+                            <strong>Expiration Date: </strong> {new Date(new Date(item.expDate).getTime() + new Date(item.expDate).getTimezoneOffset() * 60000).toDateString()}<br />
                             </>
                         : null 
                         }
