@@ -12,8 +12,14 @@ export default function GroceryList({items, addItem, handleDeleteItem, handleTra
     return (
         <div className='container'>
             <h1>Grocery List</h1>
-            <ul>{itemsList}</ul>
-
+            <div className='content'>
+                <ul>{itemsList}</ul>
+                { itemsList.length ? 
+                null 
+                : 
+                <p>Your grocery list is empty. Add items below:</p>
+                }
+            </div>
             <AddItemForm addItem={addItem} exp={exp}/>
         </div>
     );
